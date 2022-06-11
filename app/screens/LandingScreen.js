@@ -1,16 +1,35 @@
 import React from 'react'
-import { SafeAreaView, View, StatusBar, Platform, Image, Text } from 'react-native'
+import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Button, Pressable } from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
 
 import { useFonts } from 'expo-font'
 
 import colors from "../config/colors"
+import {BoxShadow} from 'react-native-shadow'
 
 const LandingScreen = (props) => {
   const [loaded] = useFonts({
-    Readex_Pro: require('../assets/fonts/Readex_Pro/ReadexPro-VariableFont_wght.ttf'),
-    "post-no-bills": require('../assets/fonts/post-no-bills/postnobillscolombo-regular.ttf')
+    readex: require("../assets/fonts/Readex_Pro/static/ReadexPro-Regular.ttf"),
+    readexLight: require("../assets/fonts/Readex_Pro/static/ReadexPro-ExtraLight.ttf"),
+    postnobills: require("../assets/fonts/post-no-bills/postnobillscolombo-regular.ttf")
   })
+  if(!loaded){
+    return null;
+  }
+
+  // const NeuMorph = ({children, paddingVertical, paddingHorizontal, borderRadius, style})=>{
+  //   return (
+  //     <View style={styles.topShadow}>
+  //       <View style={styles.bottomShadow}>
+  //         <View style={[style]}>
+  //           {children}
+  //         </View>
+  //       </View>
+
+  //     </View>
+  //   )
+  // }
+
   return (
     <SafeAreaView style={styles.main}>
       <LinearGradient
@@ -22,18 +41,30 @@ const LandingScreen = (props) => {
             <Image style={styles.logo} source={require("../assets/neumusicLogo.png")}/>
         </View>
         {/* HERO */}
-        <View>
-            <Text style={styles.mainText}>Listen to new music, <Text style={styles.inStyle}>in style</Text></Text>
+        <View style={styles.mainContainer}>
+            <Text style={styles.mainText}>Listen to new music,</Text>
+             <Text style={styles.inStyle}>in style</Text>
+             <Text style={styles.explanation}>In a new era, comes a new way to listen to music</Text>
+
+            {Platform.OS === "android" ? 
+            <TouchableNativeFeedback style={styles.touchableButton}>
+              <View setting={styles.nextButtonShadowProp}>
+                <Text style={{color: colors.white, fontFamily: "readex", fontSize: 20}}>Some Value</Text>
+              </View>
+            </TouchableNativeFeedback> : 
+            <TouchableOpacity style={styles.touchableButton}>
+              <View setting={styles.nextButtonShadowProp}>
+                <Text style={{color: colors.white, fontFamily: "readex", fontSize: 20}}>Some Value</Text>
+              </View>
+            </TouchableOpacity>}
         </View>
-
-
 
       </LinearGradient>
     </SafeAreaView>
   )
 }
 
-let styles = {
+let styles = StyleSheet.create({
   main: {
     paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
@@ -43,26 +74,72 @@ let styles = {
   },
   navBar: {
     width: "100%",
-    flex: 1,
     flexDirection: "row",
-    alignContent: "center",
+    alignItems: "center",
     padding: 10,
   },
   logo: {
-    height: 60,
-    width: "fit-content"
+    
+  },
+  mainContainer: {
+    height: "100%",
+    width: "100%",
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "red",
+
   },
   mainText: {
-    fontSize: 30,
+    fontSize: 60,
     color: colors.white,
-    fontFamily: "Readex_Pro",
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    fontFamily: "readex",
+    paddingHorizontal: 100,
+    textAlign: "center",
+    fontWeight: "100",
+    lineHeight: 65,
   },
   inStyle: {
-    fontFamily: "post-no-bills"
+    fontSize: 70,
+    color: colors.white,
+    fontFamily: "postnobills",
+    paddingHorizontal: 40,
+    textAlign: "center",
+    lineHeight: 80,
+    marginTop: -4,
+  },
+  explanation: {
+    textAlign: 'center',
+    color: colors.white,
+    fontSize: 25,
+    fontFamily: "readexLight",
+    width: 340,
+    fontWeight: "100",
+  },
+  nextButton: {
+    color: colors.white,
+    backgroundColor: colors.lightBlue,
+    paddingHorizontal: 100,
+    paddingVertical: 20,
+    borderRadius: 10,
+    
+  },
+  nextButtonShadowProp:{
+    width: 0,
+    height: 70,
+    color: "#000",
+    border: 2,
+    radius: 3,
+    opacity: 0.2,
+    x: 0,
+    y: 3,
+    style: { marginVertical: 5 }
+  },
+  nextButtonText: {
+    fontFamily: "readex",
+    color: colors.white
   }
-}
+})
 
 export default LandingScreen

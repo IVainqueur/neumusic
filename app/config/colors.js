@@ -3,4 +3,5 @@ export default {
   darkBlue: '#00398F',
   black: '#000',
   white: '#fff',
+  transparent: "#ffffff00"
 }
