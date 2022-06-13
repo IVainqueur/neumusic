@@ -1,33 +1,32 @@
 import React from 'react'
 import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Button, Pressable } from 'react-native'
-import {LinearGradient} from 'expo-linear-gradient'
+import { LinearGradient } from 'expo-linear-gradient'
 
 import { useFonts } from 'expo-font'
 
 import colors from "../config/colors"
-import {BoxShadow} from 'react-native-shadow'
 
-const LandingScreen = (props) => {
+const LandingScreen = ({ navigation }) => {
   const [loaded] = useFonts({
     readex: require("../assets/fonts/Readex_Pro/static/ReadexPro-Regular.ttf"),
     readexLight: require("../assets/fonts/Readex_Pro/static/ReadexPro-ExtraLight.ttf"),
     postnobills: require("../assets/fonts/post-no-bills/postnobillscolombo-regular.ttf")
   })
-  if(!loaded){
+  if (!loaded) {
     return null;
   }
 
   // const NeuMorph = ({children, paddingVertical, paddingHorizontal, borderRadius, style})=>{
-  //   return (
-  //     <View style={styles.topShadow}>
-  //       <View style={styles.bottomShadow}>
-  //         <View style={[style]}>
-  //           {children}
-  //         </View>
-  //       </View>
+  //     return (
+  //         <View style={styles.topShadow}>
+  //             <View style={styles.bottomShadow}>
+  //                 <View style={[style]}>
+  //                     {children}
+  //                 </View>
+  //             </View>
 
-  //     </View>
-  //   )
+  //         </View>
+  //     )
   // }
 
   return (
@@ -38,23 +37,23 @@ const LandingScreen = (props) => {
       >
         {/* The NavBar */}
         <View style={styles.navBar}>
-            <Image style={styles.logo} source={require("../assets/neumusicLogo.png")}/>
+          <Image style={styles.logo} source={require("../assets/neumusicLogo.png")} />
         </View>
         {/* HERO */}
         <View style={styles.mainContainer}>
-            <Text style={styles.mainText}>Listen to new music,</Text>
-             <Text style={styles.inStyle}>in style</Text>
-             <Text style={styles.explanation}>In a new era, comes a new way to listen to music</Text>
+          <Text style={styles.mainText}>Listen to new music,</Text>
+          <Text style={styles.inStyle}>in style</Text>
+          <Text style={styles.explanation}>In a new era, comes a new way to listen to music</Text>
 
-            {Platform.OS === "android" ? 
-            <TouchableNativeFeedback style={styles.touchableButton}>
-              <View setting={styles.nextButtonShadowProp}>
-                <Text style={{color: colors.white, fontFamily: "readex", fontSize: 20}}>Some Value</Text>
+          {Platform.OS === "android" ?
+            <TouchableNativeFeedback style={styles.touchableButton} onPress={() => { navigation.navigate('HomeScreen') }}>
+              <View style={styles.nextButtonShadowProp}>
+                <Text style={{ color: colors.white, fontFamily: "readex", fontWeight: "600", fontSize: 20 }}>Start NOW</Text>
               </View>
-            </TouchableNativeFeedback> : 
-            <TouchableOpacity style={styles.touchableButton}>
-              <View setting={styles.nextButtonShadowProp}>
-                <Text style={{color: colors.white, fontFamily: "readex", fontSize: 20}}>Some Value</Text>
+            </TouchableNativeFeedback> :
+            <TouchableOpacity style={styles.touchableButton} onPress={() => { navigation.navigate('HomeScreen') }}>
+              <View style={styles.nextButtonShadowProp}>
+                <Text style={{ color: colors.white, fontFamily: "readex", fontWeight: "600", fontSize: 20 }}>Start NOW</Text>
               </View>
             </TouchableOpacity>}
         </View>
@@ -77,9 +76,10 @@ let styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 10,
+    paddingTop: 20,
   },
   logo: {
-    
+
   },
   mainContainer: {
     height: "100%",
@@ -123,18 +123,14 @@ let styles = StyleSheet.create({
     paddingHorizontal: 100,
     paddingVertical: 20,
     borderRadius: 10,
-    
+
   },
-  nextButtonShadowProp:{
-    width: 0,
-    height: 70,
-    color: "#000",
-    border: 2,
-    radius: 3,
-    opacity: 0.2,
-    x: 0,
-    y: 3,
-    style: { marginVertical: 5 }
+  nextButtonShadowProp: {
+    paddingVertical: 10,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    backgroundColor: colors.darkBlue,
+    elevation: 10
   },
   nextButtonText: {
     fontFamily: "readex",
