@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Button, Pressable, ScrollView } from 'react-native'
+import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
 
