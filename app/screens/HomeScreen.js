@@ -82,7 +82,7 @@ const HomeScreen = (props) => {
                 {/* <Song Details> */}
                 <View style={styles.PlayControlTextContent}>
                     <Image source={currentSong.imageURI} style={styles.PlayControlImage} />
-                    <View>
+                    <View >
                         <Text style={styles.PlayControlTitle}>{currentSong.title}</Text>
                         <Text style={styles.PlayControlArtists}>{currentSong.artists}</Text>
                     </View>
