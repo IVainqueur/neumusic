@@ -1,8 +1,7 @@
 import React from 'react'
-import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Button, Pressable, ScrollView } from 'react-native'
-import { LinearGradient } from 'expo-linear-gradient'
+import { View, Platform, Image, TouchableOpacity, TouchableNativeFeedback, Button, Pressable, ScrollView } from 'react-native'
 
-import { useFonts } from 'expo-font'
+
 
 import colors from "../config/colors"
 import Icon from 'react-native-vector-icons/Ionicons'
