@@ -251,6 +251,16 @@ let styles = StyleSheet.create({
     PlayControlButtons: {
         flex: 1,
         flexDirection: 'row',
+    },
+    PlayControlButton: {
+        height: 30,
+        width: 30,
+        borderRadius: 15,
+        backgroundColor: colors.darkBlue + "50",
+        justifyContent: "center",
+        alignItems: "center",
+        alignSelf: "flex-end",
+        marginRight: 10,
     }
 })
 
