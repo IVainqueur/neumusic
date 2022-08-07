@@ -227,7 +227,7 @@ let styles = StyleSheet.create({
         left: 0,
         width: "100%",
         padding: 10,
-        backgroundColor: colors.darkBlue,
+        backgroundColor: colors.lightBlue,
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
