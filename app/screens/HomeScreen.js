@@ -79,7 +79,14 @@ const HomeScreen = (props) => {
 
     useEffect(()=>{
         if(downloadsPath !== ""){
-            let audioFiles = getFiles(downloadsPath)
+            let audioFiles = getFiles(downloadsPath).filter(file => file.format === "mp3")
+            audioFiles.map((file, i)=>{
+                return {
+                    title: file.title,
+                    artist: file.artist,
+                    thu
+                }
+            })
             setDownloads(audioFiles)
         }
     }, [downloadsPath])
