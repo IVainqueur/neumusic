@@ -67,6 +67,10 @@ const HomeScreen = (props) => {
     const [downloadsPath, setDownloadsPath] = useState('')
     const [downloads, setDownloads] = useState([])
 
+    const getFiles = async (path)=>{
+
+    }
+
     useEffect(()=>{
         setDownloadsPath(RNFS.DownloadDirectoryPath)
     }, [])
