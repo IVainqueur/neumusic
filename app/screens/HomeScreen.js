@@ -73,22 +73,23 @@ const HomeScreen = (props) => {
                     <View style={styles.mainDIV}>
                         <RecentlyPlayedDIV styles={styles} recentlyPlayed={recentlyPlayed} />
                         <AllSongs styles={styles} recentlyPlayed={recentlyPlayed} />
-                        {/* <PlayControl> */}
-                        <View style={styles.PlayControlParent}>
-                            {/* <Song Details> */}
-                            <View style={styles.PlayControlTextContent}>
-                                <Image source={currentSong.imageURI} style={styles.PlayControlImage} />
-                                <View>
-                                    <Text style={styles.PlayControlTitle}>{currentSong.title}</Text>
-                                    <Text style={styles.PlayControlArtists}>{currentSong.artists}</Text>
-                                </View>
-                            </View>
-                            {/* <Song Details> */}
-                        </View>
-                        {/* </PlayControl> */}
+
                     </View>
                 </LinearGradient>
             </ScrollView>
+            {/* <PlayControl> */}
+            <View style={styles.PlayControlParent}>
+                {/* <Song Details> */}
+                <View style={styles.PlayControlTextContent}>
+                    <Image source={currentSong.imageURI} style={styles.PlayControlImage} />
+                    <View>
+                        <Text style={styles.PlayControlTitle}>{currentSong.title}</Text>
+                        <Text style={styles.PlayControlArtists}>{currentSong.artists}</Text>
+                    </View>
+                </View>
+                {/* <Song Details> */}
+            </View>
+            {/* </PlayControl> */}
         </SafeAreaView>
     )
 }
@@ -97,6 +98,7 @@ let styles = StyleSheet.create({
     main: {
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         height: "100%",
+        flex: 1
     },
     mainDIV: {
         height: "100%",
