@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
@@ -63,6 +63,11 @@ const HomeScreen = (props) => {
         }
     ]
     const [currentSong, setCurrentSong] = useState(recentlyPlayed[0])
+
+
+    useEffect(()=>{
+        
+    }, [])
 
     return (
         <SafeAreaView style={styles.main}>
