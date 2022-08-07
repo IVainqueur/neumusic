@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Button, Pressable, ScrollView } from 'react-native'
+import { View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Button, Pressable, ScrollView } from 'react-native'
 
 
 import colors from "../config/colors"
