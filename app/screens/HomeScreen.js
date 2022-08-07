@@ -255,6 +255,7 @@ let styles = StyleSheet.create({
     PlayControlButton: {
         height: 30,
         width: 30,
+        // padding: 5,
         marginRight: 10,
         borderRadius: 15,
         backgroundColor: colors.darkBlue + "50",
