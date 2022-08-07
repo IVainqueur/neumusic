@@ -10,6 +10,10 @@ npm-debug.*
 *.orig.*
 web-build/
 
+auto-push
+main.exe
+auto-push.exe
+
 .expo-shared/
 /.vs_code
 

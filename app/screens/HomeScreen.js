@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Button, Pressable, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
@@ -6,17 +6,12 @@ import { useFonts } from 'expo-font'
 
 import colors from "../config/colors"
 import Icon from 'react-native-vector-icons/Ionicons'
+import RecentlyPlayedDIV from '../components/RecentlyPlayedDIV'
+import NavBar from '../components/NavBar'
+import AllSongs from '../components/AllSongs'
 
 
 const HomeScreen = (props) => {
-    const [loaded] = useFonts({
-        readex: require("../assets/fonts/Readex_Pro/static/ReadexPro-Regular.ttf"),
-        readexLight: require("../assets/fonts/Readex_Pro/static/ReadexPro-ExtraLight.ttf"),
-        postnobills: require("../assets/fonts/post-no-bills/postnobillscolombo-regular.ttf")
-    })
-    if (!loaded) {
-        return null;
-    }
     /*-> Suppose we fetch an array of recently played songs here */
     const recentlyPlayed = [
         {
@@ -65,6 +60,7 @@ const HomeScreen = (props) => {
             imageURI: require("../assets/009.jpg")
         }
     ]
+    const [currentSong, setCurrentSong] = useState(recentlyPlayed[0])
 
     return (
         <SafeAreaView style={styles.main}>
@@ -73,59 +69,38 @@ const HomeScreen = (props) => {
                     colors={[colors.lightBlue, colors.darkBlue]}
                     style={styles.linearGradient}
                 >
-                    {/* The NavBar */}
-                    <View style={styles.navBar}>
-
-                        {Platform.OS === "android" ?
-                            <TouchableNativeFeedback  >
-                                <Icon
-                                    name="menu"
-                                    size={30} color={colors.white}
-                                    style={styles.menuButton}
-                                />
-                            </TouchableNativeFeedback> :
-                            <TouchableOpacity  >
-                                <Icon
-                                    name="menu"
-                                    size={30} color={colors.white}
-                                    style={styles.menuButton}
-                                />
-                            </TouchableOpacity>}
-                        <Image style={styles.logo} source={require("../assets/neumusicLogo.png")} />
-                    </View>
-                    {/* Main DIV */}
+                    <NavBar styles={styles} />
                     <View style={styles.mainDIV}>
-                        {/* <RecentlyPlayedDIV */}
-                        <View style={styles.RecentlyPlayedDIV}>
-                            <Text style={{ color: colors.white, fontSize: 20, fontFamily: "readex" }}>Recently Played</Text>
-                            {/* <Recently Played Cards */}
-                            <ScrollView style={styles.CardGroup} horizontal={true} showsHorizontalScrollIndicator={false}>
-                                {/* <Recently Played Card */}
-                                {recentlyPlayed.map((x, index) => {
-                                    return (
-                                        <LinearGradient colors={[colors.lightBlue + "30", colors.darkBlue].reverse()} style={styles.Card} key={index}>
-                                            <Image style={styles.CardImage} source={x.imageURI} />
-                                            <View style={styles.CardContent}>
-                                                <View style={styles.CardTextContent}>
-                                                    <Text style={styles.cardSongTitle}>{x.title}</Text>
-                                                    <Text style={styles.cardSongArtists}>{x.artists.slice(0, 13) + ((x.artists.length > 13) ? '...' : '')}</Text>
-                                                </View>
-                                                <TouchableOpacity activeOpacity={0.6}>
-                                                    <View style={{ ...styles.CardPlay }}>
-                                                        <Icon name='caret-forward-outline' size={30} color={colors.white} />
-                                                    </View>
-                                                </TouchableOpacity>
-                                            </View>
+                        <RecentlyPlayedDIV styles={styles} recentlyPlayed={recentlyPlayed} />
+                        <AllSongs styles={styles} recentlyPlayed={recentlyPlayed} />
 
-                                        </LinearGradient>
-                                    )
-                                })}
-
-                            </ScrollView>
-                        </View>
                     </View>
                 </LinearGradient>
             </ScrollView>
+            {/* <PlayControl> */}
+            <View style={styles.PlayControlParent}>
+                {/* <Song Details> */}
+                <View style={styles.PlayControlTextContent}>
+                    <Image source={currentSong.imageURI} style={styles.PlayControlImage} />
+                    <View >
+                        <Text style={styles.PlayControlTitle}>{currentSong.title}</Text>
+                        <Text style={styles.PlayControlArtists}>{currentSong.artists}</Text>
+                    </View>
+                </View>
+                <View style={styles.PlayControlButtons}>
+                    <TouchableOpacity activeOpacity={0.7}>
+                        <Icon style={styles.PlayControlButton} name='play-skip-back' size={16} color={colors.white} />
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={0.7}>
+                        <Icon style={styles.PlayControlButton} name='play' size={16} color={colors.white} />
+                    </TouchableOpacity>
+                    <TouchableOpacity activeOpacity={0.7}>
+                        <Icon style={styles.PlayControlButton} name='play-skip-forward' size={16} color={colors.white} />
+                    </TouchableOpacity>
+                </View>
+                {/* <Song Details> */}
+            </View>
+            {/* </PlayControl> */}
         </SafeAreaView>
     )
 }
@@ -134,7 +109,7 @@ let styles = StyleSheet.create({
     main: {
         paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
         height: "100%",
-        // backgroundColor: "red"
+        flex: 1
     },
     mainDIV: {
         height: "100%",
@@ -147,7 +122,7 @@ let styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         flex: 1,
-        alignSelf: 'stretch'
+        alignSelf: 'stretch',
     },
     navBar: {
         width: "100%",
@@ -171,13 +146,12 @@ let styles = StyleSheet.create({
     Card: {
         overflow: 'hidden',
         width: 230,
-        // elevation: 5,
         padding: 15,
         marginRight: 10,
         borderRadius: 10,
         alignItems: 'flex-start',
         flexDirection: "column",
-        // backgroundColor: colors.darkBlue + "50", // -> 
+        backgroundColor: colors.darkBlue + "90", // -> 
     },
     CardImage: {
         width: 200,
@@ -212,6 +186,86 @@ let styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "flex-end",
+        elevation: 10,
+        // backgroundColor: colors.lightBlue + "30",
+    },
+    Song: {
+        flexDirection: "row",
+        alignItems: 'center',
+        padding: 10,
+        borderRadius: 10,
+        marginBottom: 10,
+        justifyContent: "flex-start",
+        position: 'relative',
+        backgroundColor: colors.lightBlue + "90",
+    },
+    SongTextContent: {
+        marginHorizontal: 10,
+    },
+    SongImage: {
+        width: 80,
+        height: 80,
+        resizeMode: 'cover',
+        borderRadius: 40
+    },
+    SongContent: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    ActionButtons: {
+        flexDirection: "row",
+        position: 'absolute',
+        right: 0,
+    },
+    SongButton: {
+        height: 30,
+        width: 30,
+        borderRadius: 15,
+        backgroundColor: colors.darkBlue + "50",
+        justifyContent: "center",
+        alignItems: "center",
+        alignSelf: "flex-end",
+        marginRight: 10,
+    },
+    PlayControlParent: {
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        padding: 10,
+        backgroundColor: colors.lightBlue,
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    PlayControlTextContent: {
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    PlayControlImage: {
+        height: 70,
+        width: 70,
+        borderRadius: 50,
+        marginRight: 10
+    },
+    PlayControlTitle: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: colors.white
+    },
+    PlayControlButtons: {
+        flex: 1,
+        flexDirection: 'row',
+    },
+    PlayControlButton: {
+        // height: 30,
+        // width: 30,
+        padding: 7,
+        marginRight: 10,
+        borderRadius: 25,
+        backgroundColor: colors.darkBlue + "50",
     }
 })
 
