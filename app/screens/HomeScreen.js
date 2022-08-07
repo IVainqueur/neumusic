@@ -247,6 +247,7 @@ let styles = StyleSheet.create({
     PlayControlButtons: {
         flex: 1,
         flexDirection: 'row',
+        
     }
 })
 
