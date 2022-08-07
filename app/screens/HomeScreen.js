@@ -233,6 +233,9 @@ let styles = StyleSheet.create({
         width: 100,
         borderRadius: 50,
         marginRight: 10
+    },
+    PlayControlTitle: {
+        fontWeight: 'bold'
     }
 })
 
