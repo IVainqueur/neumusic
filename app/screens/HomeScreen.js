@@ -71,6 +71,12 @@ const HomeScreen = (props) => {
         setDownloadsPath(RNFS.DownloadDirectoryPath)
     }, [])
 
+    useEffect(()=>{
+        if(downloadsPath !== ""){
+            setDownloads('')
+        }
+    }, [downloadsPath])
+
     return (
         <SafeAreaView style={styles.main}>
             <ScrollView style={{ height: "100%" }}>
