@@ -259,9 +259,6 @@ let styles = StyleSheet.create({
         marginRight: 10,
         borderRadius: 15,
         backgroundColor: colors.darkBlue + "50",
-        justifyContent: "center",
-        alignItems: "center",
-        alignSelf: "flex-end",
     }
 })
 
