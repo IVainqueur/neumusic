@@ -84,7 +84,7 @@ const HomeScreen = (props) => {
                 return {
                     title: file.title,
                     artist: file.artist,
-                    thu
+                    thumbnail: file.thumbnail
                 }
             })
             setDownloads(audioFiles)
