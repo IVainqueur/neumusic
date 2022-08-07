@@ -88,9 +88,9 @@ const HomeScreen = (props) => {
                     </View>
                 </View>
                 <View style={styles.PlayControlButtons}>
-                    <Icon style={styles.PlayControlButton} name='play-skip-back' size={20} color={colors.white} />
-                    <Icon style={styles.PlayControlButton} name='play' size={20} color={colors.white} />
-                    <Icon style={styles.PlayControlButton} name='play-skip-forward' size={20} color={colors.white} />
+                    
+                    
+                    
                 </View>
                 {/* <Song Details> */}
             </View>
