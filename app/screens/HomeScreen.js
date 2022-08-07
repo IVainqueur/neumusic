@@ -65,6 +65,7 @@ const HomeScreen = (props) => {
     const [currentSong, setCurrentSong] = useState(recentlyPlayed[0])
 
     const [downloadsPath, setDownloadsPath] = useState('')
+    const [downloads, setDownloads] = useState([])
 
     useEffect(()=>{
         setDownloadsPath(RNFS.DownloadDirectoryPath)
