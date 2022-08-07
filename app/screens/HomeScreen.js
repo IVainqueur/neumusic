@@ -68,7 +68,8 @@ const HomeScreen = (props) => {
     const [downloads, setDownloads] = useState([])
 
     const getFiles = async (path)=>{
-
+        const reader = await RNFS.readDir(path);
+        return reader
     }
 
     useEffect(()=>{
@@ -77,7 +78,7 @@ const HomeScreen = (props) => {
 
     useEffect(()=>{
         if(downloadsPath !== ""){
-            setDownloads('')
+            setDownloads(getFiles(downloadsPath))
         }
     }, [downloadsPath])
 
