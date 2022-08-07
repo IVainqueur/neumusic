@@ -88,9 +88,9 @@ const HomeScreen = (props) => {
                     </View>
                 </View>
                 <View style={styles.PlayControlButtons}>
-                    <Icon style={styles.PlayControlButton} name='play-skip-back' size={30} color={colors.white} />
-                    <Icon style={styles.PlayControlButton} name='play' size={30} color={colors.white} />
-                    <Icon style={styles.PlayControlButton} name='play-skip-forward' size={30} color={colors.white} />
+                    <Icon style={styles.PlayControlButton} name='play-skip-back' size={20} color={colors.white} />
+                    <Icon style={styles.PlayControlButton} name='play' size={20} color={colors.white} />
+                    <Icon style={styles.PlayControlButton} name='play-skip-forward' size={20} color={colors.white} />
                 </View>
                 {/* <Song Details> */}
             </View>
@@ -253,8 +253,8 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
     },
     PlayControlButton: {
-        height: 20,
-        width: 20,
+        height: 30,
+        width: 30,
         marginRight: 10,
         borderRadius: 15,
         backgroundColor: colors.darkBlue + "50",
