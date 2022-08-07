@@ -253,11 +253,11 @@ let styles = StyleSheet.create({
         flexDirection: 'row',
     },
     PlayControlButton: {
-        height: 30,
-        width: 30,
-        // padding: 5,
+        // height: 30,
+        // width: 30,
+        padding: 5,
         marginRight: 10,
-        borderRadius: 15,
+        borderRadius: 25,
         backgroundColor: colors.darkBlue + "50",
     }
 })
