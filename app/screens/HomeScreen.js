@@ -92,7 +92,7 @@ const HomeScreen = (props) => {
                     <NavBar styles={styles} />
                     <View style={styles.mainDIV}>
                         <RecentlyPlayedDIV styles={styles} recentlyPlayed={recentlyPlayed} />
-                        <AllSongs styles={styles} recentlyPlayed={recentlyPlayed} />
+                        <AllSongs styles={styles} recentlyPlayed={recentlyPlayed} songs={downloads} />
 
                     </View>
                 </LinearGradient>
