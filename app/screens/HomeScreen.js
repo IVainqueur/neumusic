@@ -223,6 +223,10 @@ let styles = StyleSheet.create({
         width: "100%",
         backgroundColor: colors.lightBlue
     },
+    PlayControlTextContent: {
+        flex: 1,
+        flexDirection: 'row'
+    },
     PlayControlImage: {
         height: 100,
         width: 100,
