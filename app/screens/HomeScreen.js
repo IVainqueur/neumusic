@@ -79,7 +79,8 @@ const HomeScreen = (props) => {
 
     useEffect(()=>{
         if(downloadsPath !== ""){
-            setDownloads(getFiles(downloadsPath))
+            let audioFiles = getFiles(downloadsPath)
+            setDownloads(audioFiles)
         }
     }, [downloadsPath])
 
