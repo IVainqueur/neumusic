@@ -11,7 +11,7 @@ const AllSongs = ({ styles, recentlyPlayed, songs }) => {
             <Text style={{ color: colors.white, fontSize: 20, fontFamily: "readex", marginVertical: 10 }}>All Songs</Text>
 
             {/* <Songs> */}
-            {recentlyPlayed.map((x, index) => {
+            {songs.map((x, index) => {
                 return (
                     <View style={styles.Song} key={index}>
                         <Image style={styles.SongImage} source={x.imageURI} />
