@@ -225,7 +225,9 @@ let styles = StyleSheet.create({
     },
     PlayControlTextContent: {
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 12
     },
     PlayControlImage: {
         height: 100,
