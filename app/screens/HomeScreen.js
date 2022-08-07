@@ -73,12 +73,21 @@ const HomeScreen = (props) => {
     }
 
     useEffect(()=>{
+        console.log(RNFS.DownloadDirectoryPath)
         setDownloadsPath(RNFS.DownloadDirectoryPath)
     }, [])
 
     useEffect(()=>{
         if(downloadsPath !== ""){
-            setDownloads(getFiles(downloadsPath))
+            let audioFiles = getFiles(downloadsPath).filter(file => file.format === "mp3")
+            audioFiles.map((file, i)=>{
+                return {
+                    title: file.title,
+                    artist: file.artist,
+                    thumbnail: file.thumbnail
+                }
+            })
+            setDownloads(audioFiles)
         }
     }, [downloadsPath])
 
@@ -92,7 +101,7 @@ const HomeScreen = (props) => {
                     <NavBar styles={styles} />
                     <View style={styles.mainDIV}>
                         <RecentlyPlayedDIV styles={styles} recentlyPlayed={recentlyPlayed} />
-                        <AllSongs styles={styles} recentlyPlayed={recentlyPlayed} />
+                        <AllSongs styles={styles} recentlyPlayed={recentlyPlayed} songs={downloads} />
 
                     </View>
                 </LinearGradient>
