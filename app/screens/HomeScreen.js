@@ -86,6 +86,11 @@ const HomeScreen = (props) => {
                         <Text style={styles.PlayControlTitle}>{currentSong.title}</Text>
                         <Text style={styles.PlayControlArtists}>{currentSong.artists}</Text>
                     </View>
+                    <View>
+                        <Icon name='play-skip-back' size={30} color={colors.white} />
+                        <Icon name='play-skip-back' size={30} color={colors.white} />
+                        <Icon name='play-skip-back' size={30} color={colors.white} />
+                    </View>
                 </View>
                 {/* <Song Details> */}
             </View>
