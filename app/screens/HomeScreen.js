@@ -228,7 +228,9 @@ let styles = StyleSheet.create({
         width: "100%",
         backgroundColor: colors.lightBlue,
         flex: 1,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
     },
     PlayControlTextContent: {
         flex: 1,
