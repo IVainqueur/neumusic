@@ -9,6 +9,8 @@ import RecentlyPlayedDIV from '../components/RecentlyPlayedDIV'
 import NavBar from '../components/NavBar'
 import AllSongs from '../components/AllSongs'
 
+/* The actually functional pages */
+
 
 const HomeScreen = (props) => {
     /*-> Suppose we fetch an array of recently played songs here */
