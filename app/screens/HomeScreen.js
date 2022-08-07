@@ -73,6 +73,7 @@ const HomeScreen = (props) => {
     }
 
     useEffect(()=>{
+        console.log(RNFS.DownloadDirectoryPath)
         setDownloadsPath(RNFS.DownloadDirectoryPath)
     }, [])
 
