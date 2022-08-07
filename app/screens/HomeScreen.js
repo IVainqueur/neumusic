@@ -10,6 +10,8 @@ import NavBar from '../components/NavBar'
 import AllSongs from '../components/AllSongs'
 
 /* The actually functional pages */
+import 'react-native-fs'
+
 
 const HomeScreen = (props) => {
     /*-> Suppose we fetch an array of recently played songs here */
