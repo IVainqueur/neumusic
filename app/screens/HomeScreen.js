@@ -88,7 +88,7 @@ const HomeScreen = (props) => {
                     </View>
                     <View>
                         <Icon name='play-skip-back' size={30} color={colors.white} />
-                        <Icon name='caret-forward-outline' size={30} color={colors.white} />
+                        <Icon name='play' size={30} color={colors.white} />
                         <Icon name='play-skip-forward' size={30} color={colors.white} />
                     </View>
                 </View>
