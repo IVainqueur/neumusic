@@ -227,12 +227,12 @@ let styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        gap: 12
     },
     PlayControlImage: {
         height: 100,
         width: 100,
-        borderRadius: 50
+        borderRadius: 50,
+        marginRight: 10
     }
 })
 
