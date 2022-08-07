@@ -64,7 +64,7 @@ const HomeScreen = (props) => {
 
     return (
         <SafeAreaView style={styles.main}>
-            <ScrollView style={{ height: "100%" }}>
+            <ScrollView style={{ height: "100%", paddingBottom: "80" }}>
                 <LinearGradient
                     colors={[colors.lightBlue, colors.darkBlue]}
                     style={styles.linearGradient}
