@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Platform, Image, TouchableOpacity, TouchableNativeFeedback, Button, Pressable, ScrollView } from 'react-native'
+import { View, Platform, Image, TouchableOpacity, TouchableNativeFeedback } from 'react-native'
 
 
 
