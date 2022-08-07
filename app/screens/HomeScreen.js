@@ -255,12 +255,13 @@ let styles = StyleSheet.create({
     PlayControlButton: {
         height: 30,
         width: 30,
+        marginRight: 10,
+        padding: 10,
         borderRadius: 15,
         backgroundColor: colors.darkBlue + "50",
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "flex-end",
-        marginRight: 10,
     }
 })
 
