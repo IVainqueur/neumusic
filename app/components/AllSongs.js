@@ -5,7 +5,7 @@ import { View, Image, Text, TouchableOpacity } from 'react-native'
 import colors from "../config/colors"
 import Icon from 'react-native-vector-icons/Ionicons'
 
-const AllSongs = ({ styles, recentlyPlayed }) => {
+const AllSongs = ({ styles, recentlyPlayed, songs }) => {
     return (
         <View>
             <Text style={{ color: colors.white, fontSize: 20, fontFamily: "readex", marginVertical: 10 }}>All Songs</Text>
