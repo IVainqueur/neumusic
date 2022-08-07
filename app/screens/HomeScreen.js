@@ -88,14 +88,20 @@ const HomeScreen = (props) => {
                     </View>
                 </View>
                 <View style={styles.PlayControlButtons}>
-                    <TouchableOpacity activeOpacity={1}>
-                        <Icon style={styles.PlayControlButton} name='play-skip-back' size={20} color={colors.white} />
+                    <TouchableOpacity activeOpacity={0.7}>
+                        <View style={styles.PlayControlButton}>
+                            <Icon name='play-skip-back' size={20} color={colors.white} />
+                        </View>
                     </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={1}>
-                        <Icon style={styles.PlayControlButton} name='play' size={20} color={colors.white} />
+                    <TouchableOpacity activeOpacity={0.7}>
+                        <View style={styles.PlayControlButton}>
+                            <Icon name='play' size={20} color={colors.white} />
+                        </View>
                     </TouchableOpacity>
-                    <TouchableOpacity activeOpacity={1}>
-                        <Icon style={styles.PlayControlButton} name='play-skip-forward' size={20} color={colors.white} />
+                    <TouchableOpacity activeOpacity={0.7}>
+                        <View style={styles.PlayControlButton}>
+                            <Icon name='play-skip-forward' size={20} color={colors.white} />
+                        </View>
                     </TouchableOpacity>
                 </View>
                 {/* <Song Details> */}
