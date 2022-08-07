@@ -1,14 +1,16 @@
-import React, { useState } from 'react'
-import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, TouchableNativeFeedback, Button, Pressable, ScrollView } from 'react-native'
+import React, { useEffect, useState } from 'react'
+import { SafeAreaView, View, StatusBar, Platform, Image, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient'
 
-import { useFonts } from 'expo-font'
 
 import colors from "../config/colors"
 import Icon from 'react-native-vector-icons/Ionicons'
 import RecentlyPlayedDIV from '../components/RecentlyPlayedDIV'
 import NavBar from '../components/NavBar'
 import AllSongs from '../components/AllSongs'
+
+/* The actually functional pages */
+import RNFS from 'react-native-fs';
 
 
 const HomeScreen = (props) => {
@@ -61,6 +63,24 @@ const HomeScreen = (props) => {
         }
     ]
     const [currentSong, setCurrentSong] = useState(recentlyPlayed[0])
+
+    const [downloadsPath, setDownloadsPath] = useState('')
+    const [downloads, setDownloads] = useState([])
+
+    const getFiles = async (path)=>{
+        const reader = await RNFS.readDir(path);
+        return reader
+    }
+
+    useEffect(()=>{
+        setDownloadsPath(RNFS.DownloadDirectoryPath)
+    }, [])
+
+    useEffect(()=>{
+        if(downloadsPath !== ""){
+            setDownloads(getFiles(downloadsPath))
+        }
+    }, [downloadsPath])
 
     return (
         <SafeAreaView style={styles.main}>
