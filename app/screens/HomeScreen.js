@@ -251,8 +251,9 @@ let styles = StyleSheet.create({
         marginRight: 10
     },
     PlayControlTitle: {
-        fontSize: 16,
-        fontWeight: 'bold'
+        fontSize: 17=8,
+        fontWeight: 'bold',
+        color: colors.white
     },
     PlayControlButtons: {
         flex: 1,
