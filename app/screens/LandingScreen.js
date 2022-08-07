@@ -16,18 +16,7 @@ const LandingScreen = ({ navigation }) => {
     return null;
   }
 
-  // const NeuMorph = ({children, paddingVertical, paddingHorizontal, borderRadius, style})=>{
-  //     return (
-  //         <View style={styles.topShadow}>
-  //             <View style={styles.bottomShadow}>
-  //                 <View style={[style]}>
-  //                     {children}
-  //                 </View>
-  //             </View>
 
-  //         </View>
-  //     )
-  // }
 
   return (
     <SafeAreaView style={styles.main}>
